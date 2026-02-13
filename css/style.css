@@ -2,22 +2,21 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #000; /* Pure black background */
+  background-color: #fff; /* White background */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  color: #fff;
+  color: #000; /* Black text */
 }
 
-/* ===================== CARD / GLASS ===================== */
+/* ===================== CARD ===================== */
 .card {
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-  backdrop-filter: blur(15px) saturate(180%);
-  -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border-radius: 20px;
-  border: 1px solid rgba(0, 255, 0, 0.3);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  background: rgba(245, 245, 245, 0.9); /* Light card */
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 128, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
   padding: 30px 25px;
   width: 400px;
   max-width: 95%;
@@ -28,14 +27,13 @@ h2 {
   text-align: center;
   margin-bottom: 25px;
   font-size: 26px;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
+  color: #000;
 }
 
 h3 {
   margin-top: 20px;
   font-size: 18px;
-  color: #00ff33;
+  color: #222;
 }
 
 /* ===================== INPUTS ===================== */
@@ -43,61 +41,38 @@ input, select {
   width: 100%;
   padding: 12px 10px;
   margin-top: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid #ccc;
   outline: none;
   font-size: 14px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: #fff;
+  color: #000;
   transition: all 0.3s ease;
 }
 
 input:focus, select:focus {
-  border-color: #00ff33;
-  box-shadow: 0 0 8px #00ff33;
-  background: rgba(0, 0, 0, 0.5);
+  border-color: #28a745; /* green border on focus */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
 }
 
 /* ===================== BUTTONS ===================== */
 button {
-  background: #00ff00;
-  color: #000;
+  background: #28a745; /* Green buttons */
+  color: #fff; /* White text */
   font-weight: bold;
   font-size: 15px;
   padding: 12px 0;
   margin-top: 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
 }
 
-/* Neon glow on hover or when mouse near */
-button:hover, button:focus, button:active {
-  color: #fff;
-  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
-  transform: scale(1.05);
-}
-
-/* Glow effect when mouse is near (using pseudo-element) */
-button::after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 12px;
-  box-shadow: 0 0 15px #00ff00;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-button:hover::after {
-  opacity: 0.6;
+button:hover {
+  background: #218838; /* Darker green on hover */
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.6); /* subtle glow */
+  transform: translateY(-2px);
 }
 
 /* ===================== NAVIGATION BUTTONS ===================== */
@@ -105,8 +80,8 @@ button:hover::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 25px;
-  gap: 15px;
+  margin-top: 20px;
+  gap: 10px;
 }
 
 .nav-buttons button {
@@ -115,8 +90,8 @@ button:hover::after {
 
 /* ===================== FILE INPUT ===================== */
 input[type="file"] {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
+  background: #f0f0f0;
+  border-radius: 8px;
   cursor: pointer;
   padding: 10px;
 }
@@ -125,12 +100,10 @@ input[type="file"] {
 #locationText {
   margin-top: 10px;
   padding: 8px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 14px;
-  background: rgba(0, 255, 0, 0.1);
-  color: #00ff00;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: #e9ffe9;
+  color: #155724;
 }
 
 /* ===================== RESALE PRICE ===================== */
@@ -139,8 +112,7 @@ input[type="file"] {
   text-align: center;
   font-size: 22px;
   font-weight: bold;
-  color: #00ff00;
-  text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+  color: #28a745;
 }
 
 /* ===================== MOBILE RESPONSIVE ===================== */
