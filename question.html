@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Condition</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>Device Condition</h2>
+
+  <div id="questions"></div>
+
+  <input type="file" id="image">
+
+  <button onclick="getLocation()">Get Location</button>
+  <p id="locationText"></p>
+
+  <button onclick="submitData()">Submit</button>
+</div>
+
+<script src="js/supabase.js"></script>
+<script src="js/questions.js"></script>
+</body>
+</html>
