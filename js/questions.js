@@ -16,6 +16,15 @@ let answers = [];
 let userLocation = "Not detected";
 
 function loadQuestion() {
+
+  // If finished all questions
+  if (currentIndex >= questions.length) {
+    document.getElementById("questionBox").style.display = "none";
+    document.querySelector(".navButtons").style.display = "none";
+    document.getElementById("finalStep").style.display = "block";
+    return;
+  }
+
   const box = document.getElementById("questionBox");
 
   box.innerHTML = `
@@ -32,10 +41,8 @@ function nextQuestion() {
   answers[currentIndex] =
     parseInt(document.getElementById("answer").value);
 
-  if (currentIndex < questions.length - 1) {
-    currentIndex++;
-    loadQuestion();
-  }
+  currentIndex++;
+  loadQuestion();
 }
 
 function prevQuestion() {
@@ -45,24 +52,36 @@ function prevQuestion() {
   }
 }
 
-// LOCATION FUNCTION
+// LOCATION
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
+
+  if (!navigator.geolocation) {
+    document.getElementById("locationText").innerText =
+      "Geolocation not supported";
+    return;
+  }
+
+  document.getElementById("locationText").innerText =
+    "Detecting location...";
+
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+
       userLocation =
-        "Lat: " + position.coords.latitude +
-        ", Lng: " + position.coords.longitude;
+        "Latitude: " + position.coords.latitude +
+        " | Longitude: " + position.coords.longitude;
 
       document.getElementById("locationText").innerText =
         userLocation;
-    });
-  } else {
-    document.getElementById("locationText").innerText =
-      "Location not supported";
-  }
+    },
+    function () {
+      document.getElementById("locationText").innerText =
+        "Location permission denied";
+    }
+  );
 }
 
-// SUBMIT FUNCTION
+// SUBMIT
 async function submitAnswers() {
 
   const basePrice = 10000;
