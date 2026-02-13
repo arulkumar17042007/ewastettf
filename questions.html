@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Device Condition</title>
+  <title>Device Questions</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
 <div class="card">
   <h2>Device Condition</h2>
 
-  <div id="questions"></div>
+  <div id="questionBox"></div>
 
-  <input type="file" id="image">
+  <div class="navButtons">
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
 
-  <button onclick="getLocation()">Get Location</button>
-  <p id="locationText"></p>
+  <button onclick="submitAnswers()">Submit</button>
 
-  <button onclick="submitData()">Submit</button>
+  <h3 id="priceResult"></h3>
 </div>
 
-<script src="js/supabase.js"></script>
 <script src="js/questions.js"></script>
 </body>
 </html>
