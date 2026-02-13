@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Device Condition</title>
+  <title>E-Waste Login</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <div class="card">
-  <h2 id="modelTitle">Device Condition</h2>
+  <h2>Login</h2>
 
-  <div id="questions"></div>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
 
-  <input type="file" id="image">
-
-  <button onclick="getLocation()">Detect Location</button>
-  <p id="locationText"></p>
-
-  <button onclick="submitData()">Submit</button>
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
 </div>
 
 <script src="js/supabase.js"></script>
-<script src="js/questions.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>
