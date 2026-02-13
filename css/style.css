@@ -12,7 +12,7 @@ body {
 
 /* ===================== CARD ===================== */
 .card {
-  background: rgba(245, 245, 245, 0.9); /* Light card */
+  background: rgba(245, 245, 245, 0.95); /* Light card */
   backdrop-filter: blur(5px);
   border-radius: 15px;
   border: 1px solid rgba(0, 128, 0, 0.3);
@@ -60,19 +60,25 @@ button {
   background: #28a745; /* Green buttons */
   color: #fff; /* White text */
   font-weight: bold;
-  font-size: 15px;
-  padding: 12px 0;
+  font-size: 16px;
+  padding: 14px 0;
   margin-top: 12px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%; /* Full width buttons */
 }
 
 button:hover {
   background: #218838; /* Darker green on hover */
   box-shadow: 0 0 10px rgba(40, 167, 69, 0.6); /* subtle glow */
   transform: translateY(-2px);
+}
+
+/* Space between stacked buttons */
+button + button {
+  margin-top: 15px;
 }
 
 /* ===================== NAVIGATION BUTTONS ===================== */
@@ -85,7 +91,7 @@ button:hover {
 }
 
 .nav-buttons button {
-  flex: 1;
+  flex: 1; /* Equal width navigation buttons */
 }
 
 /* ===================== FILE INPUT ===================== */
