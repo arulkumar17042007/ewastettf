@@ -16,18 +16,22 @@
     <button onclick="nextQuestion()">Next</button>
   </div>
 
-  <!-- LOCATION -->
-  <h3>Your Location</h3>
-  <p id="locationText">Click button to detect location</p>
-  <button onclick="getLocation()">Detect Location</button>
+  <!-- FINAL STEP SECTION (Hidden Initially) -->
+  <div id="finalStep" style="display:none;">
 
-  <!-- PHOTO UPLOAD -->
-  <h3>Upload Device Photos</h3>
-  <input type="file" id="deviceImages" multiple accept="image/*">
+    <h3>Your Location</h3>
+    <p id="locationText">Location not detected</p>
+    <button onclick="getLocation()">Detect Location</button>
 
-  <button onclick="submitAnswers()">Submit</button>
+    <h3>Upload Device Photos</h3>
+    <input type="file" id="deviceImages" multiple accept="image/*">
+
+    <button onclick="submitAnswers()">Submit</button>
+
+  </div>
 
   <h3 id="priceResult"></h3>
+
 </div>
 
 <script src="js/supabase.js"></script>
