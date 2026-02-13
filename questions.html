@@ -16,11 +16,18 @@
     <button onclick="nextQuestion()">Next</button>
   </div>
 
+  <h3>Upload Device Images</h3>
+  <input type="file" id="deviceImages" multiple accept="image/*">
+
+  <h3>Your Location</h3>
+  <p id="locationText">Detecting location...</p>
+
   <button onclick="submitAnswers()">Submit</button>
 
   <h3 id="priceResult"></h3>
 </div>
 
+<script src="js/supabase.js"></script>
 <script src="js/questions.js"></script>
 </body>
 </html>
