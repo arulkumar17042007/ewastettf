@@ -16,11 +16,14 @@
     <button onclick="nextQuestion()">Next</button>
   </div>
 
-  <h3>Upload Device Images</h3>
-  <input type="file" id="deviceImages" multiple accept="image/*">
-
+  <!-- LOCATION -->
   <h3>Your Location</h3>
-  <p id="locationText">Detecting location...</p>
+  <p id="locationText">Click button to detect location</p>
+  <button onclick="getLocation()">Detect Location</button>
+
+  <!-- PHOTO UPLOAD -->
+  <h3>Upload Device Photos</h3>
+  <input type="file" id="deviceImages" multiple accept="image/*">
 
   <button onclick="submitAnswers()">Submit</button>
 
