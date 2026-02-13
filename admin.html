@@ -1,60 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Panel - E-Waste Resale</title>
+  <title>Admin Panel</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
-<div class="admin-container">
-
-  <h1>Admin Dashboard</h1>
-
-  <div class="admin-login">
-    <input type="email" id="adminEmail" placeholder="Admin Email">
-    <input type="password" id="adminPassword" placeholder="Admin Password">
-    <button onclick="adminLogin()">Login as Admin</button>
-  </div>
-
-  <hr>
-
-  <div id="dashboard" style="display:none;">
-    <h2>All Submitted Devices</h2>
-    <div id="products" class="product-grid"></div>
-  </div>
-
+<div class="card">
+  <h2>Admin Dashboard</h2>
+  <div id="products"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
 <script src="js/admin.js"></script>
-
-<script>
-async function adminLogin() {
-  const email = document.getElementById("adminEmail").value;
-  const password = document.getElementById("adminPassword").value;
-
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    alert("Invalid admin login");
-    return;
-  }
-
-  // 🔐 Change this to your real admin email
-  if (email !== "e.arulkumar50@gmail.com") {
-    alert("Not authorized as admin");
-    return;
-  }
-
-  document.getElementById("dashboard").style.display = "block";
-  loadProducts();
-}
-</script>
-
 </body>
 </html>
