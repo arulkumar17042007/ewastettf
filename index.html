@@ -1,121 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>E-Waste Resale Platform</title>
+  <title>E-Waste Login</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
-<h1>E-Waste Resale Platform</h1>
+<div class="card">
+  <h2>E-Waste Login</h2>
 
-<!-- ================= LOGIN SECTION ================= -->
+  <input type="email" id="email" placeholder="Enter Email" required>
+  <input type="password" id="password" placeholder="Enter Password" required>
 
-<h2>Login / Signup</h2>
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
+</div>
 
-<input type="email" id="email" placeholder="Enter Email">
-<input type="password" id="password" placeholder="Enter Password">
-
-<button onclick="signup()">Signup</button>
-<button onclick="login()">Login</button>
-
-<hr>
-
-<!-- ================= PRODUCT FORM ================= -->
-
-<h2>Sell Your Device</h2>
-
-<label>Brand:</label>
-<select id="brand">
-  <option>Apple</option>
-  <option>Samsung</option>
-  <option>OnePlus</option>
-</select>
-
-<br><br>
-
-<label>Model:</label>
-<select id="model">
-  <option>iPhone 13</option>
-  <option>iPhone 12</option>
-  <option>Samsung S22</option>
-  <option>OnePlus 12</option>
-</select>
-
-<br><br>
-
-<label>Upload Device Image:</label>
-<input type="file" id="image">
-
-<hr>
-
-<h2>Device Condition Questions</h2>
-
-<!-- Q1 -->
-<p>1. Screen is not cracked?</p>
-<label><input type="radio" name="q1" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q1" value="No"> No</label>
-
-<!-- Q2 -->
-<p>2. No dead pixels?</p>
-<label><input type="radio" name="q2" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q2" value="No"> No</label>
-
-<!-- Q3 -->
-<p>3. Battery health above 80%?</p>
-<label><input type="radio" name="q3" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q3" value="No"> No</label>
-
-<!-- Q4 -->
-<p>4. Face ID / Fingerprint working?</p>
-<label><input type="radio" name="q4" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q4" value="No"> No</label>
-
-<!-- Q5 -->
-<p>5. Charging port working properly?</p>
-<label><input type="radio" name="q5" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q5" value="No"> No</label>
-
-<!-- Q6 -->
-<p>6. Speaker working clearly?</p>
-<label><input type="radio" name="q6" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q6" value="No"> No</label>
-
-<!-- Q7 -->
-<p>7. Camera working properly?</p>
-<label><input type="radio" name="q7" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q7" value="No"> No</label>
-
-<!-- Q8 -->
-<p>8. No water damage?</p>
-<label><input type="radio" name="q8" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q8" value="No"> No</label>
-
-<!-- Q9 -->
-<p>9. No dents or heavy scratches?</p>
-<label><input type="radio" name="q9" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q9" value="No"> No</label>
-
-<!-- Q10 -->
-<p>10. Original box available?</p>
-<label><input type="radio" name="q10" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q10" value="No"> No</label>
-
-<!-- Q11 -->
-<p>11. Original charger available?</p>
-<label><input type="radio" name="q11" value="Yes" checked> Yes</label>
-<label><input type="radio" name="q11" value="No"> No</label>
-
-<hr>
-
-<button onclick="submitProduct()">Get Resale Value</button>
-
-<!-- ================= SCRIPTS ================= -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
 <script src="js/auth.js"></script>
-<script src="js/main.js"></script>
 
 </body>
 </html>
