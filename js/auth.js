@@ -3,15 +3,12 @@ async function signup() {
   const password = document.getElementById("password").value;
 
   const { error } = await supabaseClient.auth.signUp({
-    email: email,
-    password: password
+    email,
+    password
   });
 
-  if (error) {
-    alert(error.message);
-  } else {
-    alert("Signup successful! Now login.");
-  }
+  if (error) alert(error.message);
+  else alert("Signup successful! Now login.");
 }
 
 async function login() {
@@ -19,13 +16,10 @@ async function login() {
   const password = document.getElementById("password").value;
 
   const { error } = await supabaseClient.auth.signInWithPassword({
-    email: email,
-    password: password
+    email,
+    password
   });
 
-  if (error) {
-    alert(error.message);
-  } else {
-    window.location.href = "model.html";
-  }
+  if (error) alert(error.message);
+  else window.location.href = "model.html";
 }
