@@ -10,7 +10,7 @@ async function signup() {
     return;
   }
 
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabaseClient.auth.signUp({
     email: email,
     password: password
   });
@@ -26,7 +26,7 @@ async function login() {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
     email: email,
     password: password
   });
@@ -34,7 +34,7 @@ async function login() {
   if (error) {
     alert("Login Error: " + error.message);
   } else {
-    console.log("User:", data.user);
+    alert("Login successful!");
     window.location.href = "model.html";
   }
 }
