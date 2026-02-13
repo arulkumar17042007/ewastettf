@@ -17,6 +17,7 @@ let userLocation = "Not detected";
 
 function loadQuestion() {
   const box = document.getElementById("questionBox");
+
   box.innerHTML = `
     <p>${questions[currentIndex]}</p>
     <select id="answer">
@@ -28,7 +29,9 @@ function loadQuestion() {
 }
 
 function nextQuestion() {
-  answers[currentIndex] = parseInt(document.getElementById("answer").value);
+  answers[currentIndex] =
+    parseInt(document.getElementById("answer").value);
+
   if (currentIndex < questions.length - 1) {
     currentIndex++;
     loadQuestion();
@@ -42,6 +45,7 @@ function prevQuestion() {
   }
 }
 
+// LOCATION FUNCTION
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -49,11 +53,16 @@ function getLocation() {
         "Lat: " + position.coords.latitude +
         ", Lng: " + position.coords.longitude;
 
-      document.getElementById("locationText").innerText = userLocation;
+      document.getElementById("locationText").innerText =
+        userLocation;
     });
+  } else {
+    document.getElementById("locationText").innerText =
+      "Location not supported";
   }
 }
 
+// SUBMIT FUNCTION
 async function submitAnswers() {
 
   const basePrice = 10000;
@@ -83,8 +92,8 @@ async function submitAnswers() {
 
   await supabaseClient.from("submissions").insert([
     {
-      model,
-      answers,
+      model: model,
+      answers: answers,
       price: finalPrice,
       location: userLocation,
       images: imageUrls
@@ -96,4 +105,3 @@ async function submitAnswers() {
 }
 
 loadQuestion();
-getLocation();
