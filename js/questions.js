@@ -13,6 +13,7 @@ const questions = [
 
 let currentIndex = 0;
 let answers = [];
+let userLocation = "Not detected";
 
 function loadQuestion() {
   const box = document.getElementById("questionBox");
@@ -27,9 +28,7 @@ function loadQuestion() {
 }
 
 function nextQuestion() {
-  const answerValue = document.getElementById("answer").value;
-  answers[currentIndex] = parseInt(answerValue);
-
+  answers[currentIndex] = parseInt(document.getElementById("answer").value);
   if (currentIndex < questions.length - 1) {
     currentIndex++;
     loadQuestion();
@@ -43,13 +42,58 @@ function prevQuestion() {
   }
 }
 
-function submitAnswers() {
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      userLocation =
+        "Lat: " + position.coords.latitude +
+        ", Lng: " + position.coords.longitude;
+
+      document.getElementById("locationText").innerText = userLocation;
+    });
+  }
+}
+
+async function submitAnswers() {
+
   const basePrice = 10000;
   const deduction = answers.reduce((a, b) => a + (b || 0), 0);
   const finalPrice = basePrice + deduction;
+
+  const files = document.getElementById("deviceImages").files;
+  let imageUrls = [];
+
+  for (let file of files) {
+    const fileName = Date.now() + "-" + file.name;
+
+    const { error } = await supabaseClient.storage
+      .from("device-images")
+      .upload(fileName, file);
+
+    if (!error) {
+      const { data } = supabaseClient.storage
+        .from("device-images")
+        .getPublicUrl(fileName);
+
+      imageUrls.push(data.publicUrl);
+    }
+  }
+
+  const model = localStorage.getItem("selectedModel");
+
+  await supabaseClient.from("submissions").insert([
+    {
+      model,
+      answers,
+      price: finalPrice,
+      location: userLocation,
+      images: imageUrls
+    }
+  ]);
 
   document.getElementById("priceResult").innerText =
     "Estimated Resale Value: ₹" + finalPrice;
 }
 
 loadQuestion();
+getLocation();
