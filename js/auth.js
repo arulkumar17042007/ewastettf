@@ -1,24 +1,12 @@
-// js/auth.js
-
-async function signup() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const { error } = await supabase.auth.signUp({ email, password });
-
-  if (error) alert(error.message);
-  else alert("Signup successful!");
-}
-
 async function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
   const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
+    email: emailInput.value,
+    password: passwordInput.value
   });
 
-  if (error) alert(error.message);
-  else alert("Login successful!");
+  if (error) {
+    alert(error.message);
+  } else {
+    window.location.href = "model.html";
+  }
 }
